@@ -25,8 +25,8 @@ Checkpoint:
 
 ## PHASE 2 - Authentication & Authorization
 
-- [ ] Menginstal Laravel Breeze.
-- [ ] Mengatur halaman login.
+- [x] Menginstal Laravel Breeze.
+- [x] Mengatur halaman login.
 - [ ] Mengatur proses logout.
 - [ ] Membuat migration roles.
 - [ ] Membuat relasi users dan roles.
