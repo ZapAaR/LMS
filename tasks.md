@@ -9,17 +9,17 @@ Status:
 
 ## PHASE 1 - Project Setup
 
-- [-] Membuat project Laravel 12.
-- [-] Mengatur koneksi database MySQL.
-- [-] Membuat database perpustakaan.
-- [-] Mengatur file .env.
-- [-] Memastikan aplikasi dapat dijalankan.
-- [ ] Menginisialisasi Git.
-- [ ] Membuat repository GitHub.
+- [x] Membuat project Laravel 12.
+- [x] Mengatur koneksi database MySQL.
+- [x] Membuat database perpustakaan.
+- [x] Mengatur file .env.
+- [x] Memastikan aplikasi dapat dijalankan.
+- [x] Menginisialisasi Git.
+- [x] Membuat repository GitHub.
 
 Checkpoint:
-- [ ] Aplikasi Laravel berhasil dijalankan.
-- [ ] Laravel berhasil terhubung ke MySQL.
+- [x] Aplikasi Laravel berhasil dijalankan.
+- [x] Laravel berhasil terhubung ke MySQL.
 
 ---
 
