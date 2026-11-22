@@ -1,100 +1,121 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+{{-- resources/views/layouts/navigation.blade.php — sidebar, kartu user, dan navbar --}}
+@php
+    $user    = auth()->user();
+    $name    = $user->name  ?? 'Nama Pengguna';
+    $email   = $user->email ?? 'email@contoh.com';
+    $role    = $user->role->slug  ?? 'Administrator';
+    $photo   = $user->photo_url ?? null; // ganti dengan kolom foto profil Anda
+    $initial = strtoupper(mb_substr($name, 0, 1));
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+    $dataOpen      = request()->is('kategori*', 'category*', 'buku*', 'anggota*');
+    $transaksiOpen = request()->is('peminjaman*', 'pengembalian*');
+@endphp
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+{{-- ================= SIDEBAR ================= --}}
+<aside id="sidebar" class="app-sidebar" aria-label="Navigasi utama">
+    <div class="sb-head">
+        <a href="{{ url('/dashboard') }}" class="sb-logo" aria-label="Perpustakaan">
+            <img src="{{ asset('images/logo-perpustakaan.svg') }}" alt="Logo Perpustakaan">
+        </a>
+        <div class="brand-text">
+            <div class="brand-name">Perpustakaan</div>
+            <div class="brand-sub">Sistem informasi</div>
         </div>
+        <button type="button" class="btn icon-btn sb-close" data-sidebar-close aria-label="Tutup menu">
+            <i class="bi bi-x-lg"></i>
+        </button>
     </div>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+    <ul class="menu list-unstyled">
+        <li>
+            <a href="{{ url('/dashboard') }}" class="menu-link {{ request()->is('dashboard') ? 'active' : '' }}" title="Dashboard">
+                <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a class="menu-link {{ $dataOpen ? '' : 'collapsed' }}" data-bs-toggle="collapse" href="#menu-data" role="button"
+               aria-expanded="{{ $dataOpen ? 'true' : 'false' }}" title="Data">
+                <i class="bi bi-database"></i><span>Data</span><i class="bi bi-chevron-down caret"></i>
+            </a>
+            <ul id="menu-data" class="collapse submenu list-unstyled {{ $dataOpen ? 'show' : '' }}">
+                <li><a href="{{ route('category.index') }}" class="sub-link {{ request()->is('category*') ? 'active' : '' }}">Kategori</a></li>
+                <li><a href="{{ url('/buku') }}" class="sub-link {{ request()->is('buku*') ? 'active' : '' }}">Buku</a></li>
+                <li><a href="{{ url('/anggota') }}" class="sub-link {{ request()->is('anggota*') ? 'active' : '' }}">Anggota</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="menu-link {{ $transaksiOpen ? '' : 'collapsed' }}" data-bs-toggle="collapse" href="#menu-transaksi" role="button"
+               aria-expanded="{{ $transaksiOpen ? 'true' : 'false' }}" title="Transaksi">
+                <i class="bi bi-arrow-left-right"></i><span>Transaksi</span><i class="bi bi-chevron-down caret"></i>
+            </a>
+            <ul id="menu-transaksi" class="collapse submenu list-unstyled {{ $transaksiOpen ? 'show' : '' }}">
+                <li><a href="{{ url('/peminjaman') }}" class="sub-link {{ request()->is('peminjaman*') ? 'active' : '' }}">Peminjaman</a></li>
+                <li><a href="{{ url('/pengembalian') }}" class="sub-link {{ request()->is('pengembalian*') ? 'active' : '' }}">Pengembalian</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="{{ url('/laporan') }}" class="menu-link {{ request()->is('laporan*') ? 'active' : '' }}" title="Laporan">
+                <i class="bi bi-file-earmark-bar-graph"></i><span>Laporan</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/riwayat') }}" class="menu-link {{ request()->is('riwayat*') ? 'active' : '' }}" title="Riwayat">
+                <i class="bi bi-clock-history"></i><span>Riwayat</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/pengguna') }}" class="menu-link {{ request()->is('pengguna*') ? 'active' : '' }}" title="Kelola akun pengguna">
+                <i class="bi bi-person-gear"></i><span>Kelola akun pengguna</span>
+            </a>
+        </li>
+    </ul>
+
+    {{-- Info pengguna di bawah sidebar --}}
+    <div class="user-card">
+        <span class="user-mini" title="{{ $name }} · {{ $role }}">{{ $initial }}</span>
+        <div class="user-info">
+            <div class="user-name" title="{{ $name }}">{{ $name }}</div>
+            <div class="user-email" title="{{ $email }}">{{ $email }}</div>
+            <span class="user-role">{{ $role }}</span>
         </div>
+    </div>
+</aside>
+<div class="sidebar-backdrop" data-sidebar-close></div>
 
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
+{{-- ================= NAVBAR ================= --}}
+<header class="app-topbar">
+    <button id="sidebarToggle" class="btn icon-btn" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Buka/tutup menu">
+        <i class="bi bi-list fs-4"></i>
+    </button>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
+    <h1 class="topbar-title">@yield('page-title', 'Dashboard')</h1>
 
-                <!-- Authentication -->
+    <div class="dropdown ms-auto">
+        <button class="profile-trigger" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @if ($photo)
+                <img src="{{ $photo }}" alt="Foto {{ $name }}" class="avatar">
+            @else
+                <span class="avatar avatar-initial">{{ $initial }}</span>
+            @endif
+            <span class="d-none d-md-inline profile-name">{{ $name }}</span>
+            <i class="bi bi-chevron-down small"></i>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end profile-menu">
+            <li>
+                <a class="dropdown-item" href="{{ url('/profile') }}"><i class="bi bi-person me-2"></i>Profile</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                {{-- Route "logout" bawaan Laravel Breeze/UI (method POST) --}}
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    <button type="submit" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
                 </form>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
-</nav>
+</header>

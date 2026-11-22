@@ -44,22 +44,22 @@ Checkpoint:
 
 ## PHASE 3 - Category Management
 
-- [ ] Membuat migration categories.
-- [ ] Membuat model Category.
-- [ ] Membuat CategoryController.
-- [ ] Membuat CategoryService.
-- [ ] Membuat validasi kategori.
-- [ ] Membuat halaman daftar kategori.
-- [ ] Membuat halaman tambah kategori.
-- [ ] Membuat proses simpan kategori.
-- [ ] Membuat halaman edit kategori.
-- [ ] Membuat proses update kategori.
-- [ ] Membuat proses hapus kategori.
-- [ ] Menguji CRUD kategori.
+- [x] Membuat migration categories.
+- [x] Membuat model Category.
+- [x] Membuat CategoryController.
+- [x] Membuat CategoryService.
+- [x] Membuat validasi kategori.
+- [x] Membuat halaman daftar kategori.
+- [x] Membuat halaman tambah kategori.
+- [x] Membuat proses simpan kategori.
+- [x] Membuat halaman edit kategori.
+- [x] Membuat proses update kategori.
+- [x] Membuat proses hapus kategori.
+- [x] Menguji CRUD kategori.
 
 Checkpoint:
-- [ ] CRUD kategori berjalan.
-- [ ] Validasi kategori berjalan.
+- [x] CRUD kategori berjalan.
+- [x] Validasi kategori berjalan.
 
 ---
 
