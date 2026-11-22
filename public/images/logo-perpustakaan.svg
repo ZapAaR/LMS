@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">Logo Perpustakaan</title>
+  <description id="description">Gambar logo gedung perpustakaan</description>
+  <rect width="128" height="128" rx="24" fill="#FFFFFF"/>
+  <rect x="20" y="36" width="88" height="64" rx="7" fill="#0E1A3A"/>
+  <rect x="28" y="44" width="72" height="48" rx="4" fill="#E6B85C"/>
+  <rect x="36" y="52" width="56" height="32" rx="3" fill="#FFFFFF"/>
+  <rect x="44" y="58" width="40" height="20" rx="2" fill="#A8B2C8"/>
+  <rect x="48" y="62" width="32" height="12" rx="2" fill="#0E1A3A"/>
+  <rect x="58" y="65" width="12" height="6" rx="1" fill="#E6B85C"/>
+  <path d="M18 34h92v8H18z" fill="#C89B3C"/>
+  <path d="M24 26h80l-8 10H32z" fill="#E6B85C"/>
+  <rect x="16" y="104" width="96" height="8" rx="4" fill="#0E1A3A"/>
+</svg>

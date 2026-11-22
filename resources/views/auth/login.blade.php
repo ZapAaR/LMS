@@ -404,13 +404,15 @@
     <div class="box" id="box">
 
         <!-- Form petugas (kiri) -->
-        <form class="form petugas" data-role="Petugas" autocomplete="off">
+        <form class="form petugas" data-role="Petugas" autocomplete="off" method="POST" action="{{ route('login') }}">
+            @csrf
+            <input type="hidden" name="role" value="petugas">
             <h1>Masuk Petugas</h1>
             <p class="sub">Gunakan akun petugas Anda.</p>
-            <div class="field"><input type="text" placeholder="Username atau email" aria-label="Username petugas"
+            <div class="field"><input type="email" placeholder="Email" aria-label="Username petugas" name="email"
                     required></div>
             <div class="field has-eye">
-                <input type="password" placeholder="Kata sandi" aria-label="Kata sandi petugas" required>
+                <input type="password" placeholder="Kata sandi" aria-label="Kata sandi petugas" name="password" required>
                 <button type="button" class="eye" aria-label="Tampilkan kata sandi">
                     <svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -428,13 +430,15 @@
         </form>
 
         <!-- Form admin (kanan) -->
-        <form class="form admin" data-role="Admin" autocomplete="off">
+        <form class="form admin" data-role="Admin" autocomplete="off" method="POST" action="{{ route('login') }}">
+            @csrf
+            <input type="hidden" name="role" value="admin">
             <h1>Masuk Admin</h1>
             <p class="sub">Gunakan akun administrator.</p>
-            <div class="field"><input type="text" placeholder="Username atau email" aria-label="Username admin"
+            <div class="field"><input type="email" placeholder="Email" aria-label="Username admin" name="email"
                     required></div>
             <div class="field has-eye">
-                <input type="password" placeholder="Kata sandi" aria-label="Kata sandi admin" required>
+                <input type="password" placeholder="Kata sandi" aria-label="Kata sandi admin" name="password" required>
                 <button type="button" class="eye" aria-label="Tampilkan kata sandi">
                     <svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -499,14 +503,6 @@
             btn.setAttribute('aria-label', show ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
         }));
 
-        // Submit 
-        document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {
-            e.preventDefault();
-            // TODO: kirim data ke server sesuai role (f.dataset.role)
-            toast.textContent = 'Login ' + f.dataset.role + ' berhasil ';
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2200);
-        }));
     </script>
 </body>
 

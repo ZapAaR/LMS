@@ -27,18 +27,18 @@ Checkpoint:
 
 - [x] Menginstal Laravel Breeze.
 - [x] Mengatur halaman login.
-- [ ] Mengatur proses logout.
-- [ ] Membuat migration roles.
-- [ ] Membuat relasi users dan roles.
-- [ ] Membuat seeder role admin.
-- [ ] Membuat seeder role petugas.
-- [ ] Membuat middleware role.
-- [ ] Membatasi halaman berdasarkan role.
+- [X] Mengatur proses logout.
+- [X] Membuat migration roles.
+- [X] Membuat relasi users dan roles.
+- [x] Membuat seeder role admin.
+- [x] Membuat seeder role petugas.
+- [x] Membuat middleware role.
+- [x] Membatasi halaman berdasarkan role.
 
 Checkpoint:
-- [ ] Admin dapat login.
-- [ ] Petugas dapat login.
-- [ ] Hak akses setiap role berjalan.
+- [x] Admin dapat login.
+- [x] Petugas dapat login.
+- [x] Hak akses setiap role berjalan.
 
 ---
 
