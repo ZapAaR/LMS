@@ -39,16 +39,26 @@
             <h3>Daftar Kategori</h3>
         </div>
 
-        <form method="GET" action="{{ route('category.index') }}" class="category-toolbar">
-            <label for="category-search" class="visually-hidden">Cari kategori</label>
+        <form method="GET" action="{{ route('category.index') }}" class="category-toolbar" id="categoryFilterForm">
+
             <div class="input-group">
                 <input type="search" id="category-search" name="search" value="{{ $search }}" class="form-control"
                     placeholder="Cari nama kategori">
+
                 <button type="submit" class="btn btn-outline-brass">
-                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <i class="bi bi-search"></i>
                     Cari
                 </button>
-                <select name="sort" class="form-select" style="max-width: 150px;">
+
+                @if ($search || $sort !== 'asc')
+                    <a href="{{ route('category.index') }}" class="btn btn-outline-secondary">
+                        Reset
+                    </a>
+                @endif
+            </div>
+
+            <div class="mt-2">
+                <select name="sort" id="category-sort" class="form-select" style="max-width: 150px;">
                     <option value="asc" {{ $sort === 'asc' ? 'selected' : '' }}>
                         Nama A–Z
                     </option>
@@ -57,10 +67,8 @@
                         Nama Z–A
                     </option>
                 </select>
-                @if ($search || $sort !== 'asc')
-                    <a href="{{ route('category.index') }}" class="btn btn-outline-secondary">Reset</a>
-                @endif
             </div>
+
         </form>
 
         <div class="table-responsive">
@@ -237,6 +245,13 @@
                     document.getElementById('editCategoryForm').action = url;
                 });
             }
+
+            const categorySort = document.getElementById('category-sort');
+            const categoryFilterForm = document.getElementById('categoryFilterForm');
+
+            categorySort.addEventListener('change', function() {
+                categoryFilterForm.submit();
+            });
         </script>
     @endpush
 @endsection
