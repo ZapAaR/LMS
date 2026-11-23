@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             PetugasSedeer::class,
             CategorySeeder::class,
+            BookSeeder::class,
         ]);
     }
 }

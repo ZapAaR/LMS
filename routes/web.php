@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth', 'role:admin,petugas')->group(function () {
     Route::resource('category', CategoryController::class)->only('index', 'store', 'update', 'destroy');
+    Route::delete('book/bulk-delete', [BookController::class, 'bulkDelete'])->name('book.bulkDelete');
+    Route::resource('book', BookController::class)->only('index', 'store', 'update', 'destroy', 'show');
 });
 require __DIR__.'/auth.php';

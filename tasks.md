@@ -65,27 +65,27 @@ Checkpoint:
 
 ## PHASE 4 - Book Management
 
-- [ ] Membuat migration books.
-- [ ] Membuat model Book.
-- [ ] Membuat relasi Book dan Category.
-- [ ] Membuat BookController.
-- [ ] Membuat BookService.
-- [ ] Membuat validasi buku.
-- [ ] Membuat halaman daftar buku.
-- [ ] Membuat halaman tambah buku.
-- [ ] Membuat proses simpan buku.
-- [ ] Membuat halaman edit buku.
-- [ ] Membuat proses update buku.
-- [ ] Membuat proses hapus buku.
-- [ ] Membuat pencarian buku.
-- [ ] Membuat filter kategori.
-- [ ] Membuat pagination.
-- [ ] Menguji CRUD buku.
+- [x] Membuat migration books.
+- [x] Membuat model Book.
+- [x] Membuat relasi Book dan Category.
+- [x] Membuat BookController.
+- [x] Membuat BookService.
+- [x] Membuat validasi buku.
+- [x] Membuat halaman daftar buku.
+- [x] Membuat halaman tambah buku.
+- [x] Membuat proses simpan buku.
+- [x] Membuat halaman edit buku.
+- [x] Membuat proses update buku.
+- [x] Membuat proses hapus buku.
+- [x] Membuat pencarian buku.
+- [x] Membuat filter kategori.
+- [x] Membuat pagination.
+- [x] Menguji CRUD buku.
 
 Checkpoint:
-- [ ] CRUD buku berjalan.
-- [ ] Relasi kategori berjalan.
-- [ ] Pencarian dan filter berjalan.
+- [x] CRUD buku berjalan.
+- [x] Relasi kategori berjalan.
+- [x] Pencarian dan filter berjalan.
 
 ---
 
