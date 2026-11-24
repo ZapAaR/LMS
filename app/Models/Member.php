@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Override;
+use Illuminate\Support\Str;
 
 class Member extends Model
 {
@@ -19,5 +21,17 @@ class Member extends Model
     public function borrowings(): HasMany
     {
         return $this->hasMany(Borrowing::class);
+    }
+
+    protected static function booted(): void
+    {
+        static::creating(function ($member) {
+            $member->uuid = (string) Str::uuid();
+        });
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
     }
 }

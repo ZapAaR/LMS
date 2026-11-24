@@ -7,7 +7,7 @@
     $photo   = $user->photo_url ?? null; // ganti dengan kolom foto profil Anda
     $initial = strtoupper(mb_substr($name, 0, 1));
 
-    $dataOpen      = request()->is('kategori*', 'category*', 'book*', 'anggota*');
+    $dataOpen      = request()->is('kategori*', 'category*', 'book*', 'member*');
     $transaksiOpen = request()->is('peminjaman*', 'pengembalian*');
 @endphp
 
@@ -41,7 +41,7 @@
             <ul id="menu-data" class="collapse submenu list-unstyled {{ $dataOpen ? 'show' : '' }}">
                 <li><a href="{{ route('category.index') }}" class="sub-link {{ request()->is('category*') ? 'active' : '' }}">Kategori</a></li>
                 <li><a href="{{ route('book.index') }}" class="sub-link {{ request()->is('book*') ? 'active' : '' }}">Buku</a></li>
-                <li><a href="{{ url('/anggota') }}" class="sub-link {{ request()->is('anggota*') ? 'active' : '' }}">Anggota</a></li>
+                <li><a href="{{ route('member.index') }}" class="sub-link {{ request()->is('member*') ? 'active' : '' }}">Anggota</a></li>
             </ul>
         </li>
 

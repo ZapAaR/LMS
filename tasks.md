@@ -91,8 +91,8 @@ Checkpoint:
 
 ## PHASE 5 - Member Management
 
-- [ ] Membuat migration members.
-- [ ] Membuat model Member.
+- [x] Membuat migration members.
+- [x] Membuat model Member.
 - [ ] Membuat MemberController.
 - [ ] Membuat MemberService.
 - [ ] Membuat validasi anggota.
