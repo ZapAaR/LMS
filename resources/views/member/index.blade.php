@@ -88,6 +88,38 @@
             gap: .75rem;
         }
 
+        .member-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .member-form-grid .form-label {
+            margin-bottom: .4rem;
+            color: var(--muted);
+            font-size: .86rem;
+            font-weight: 500;
+        }
+
+        .member-form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .member-modal .modal-content {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--navy-800);
+        }
+
+        .member-modal .modal-header,
+        .member-modal .modal-footer {
+            border-color: var(--line);
+        }
+
+        .member-modal .modal-dialog {
+            max-width: 720px;
+        }
+
         .member-detail-item {
             padding: .75rem;
             border: 1px solid var(--line);
@@ -119,12 +151,14 @@
         @media (max-width: 575.98px) {
 
             .member-toolbar,
-            .member-detail {
+            .member-detail,
+            .member-form-grid {
                 grid-template-columns: 1fr;
             }
 
             .member-toolbar .member-search,
-            .member-detail-item.full {
+            .member-detail-item.full,
+            .member-form-field.full {
                 grid-column: auto;
             }
         }
@@ -354,8 +388,8 @@
         @endif
     </section>
 
-    <div class="modal fade" id="showMemberModal" tabindex="-1" aria-labelledby="showMemberTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade member-modal" id="showMemberModal" tabindex="-1" aria-labelledby="showMemberTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="showMemberTitle">Detail Member</h5>
@@ -393,9 +427,9 @@
         </div>
     </div>
 
-    <div class="modal fade" id="createMemberModal" tabindex="-1" aria-labelledby="createMemberTitle"
+    <div class="modal fade member-modal" id="createMemberModal" tabindex="-1" aria-labelledby="createMemberTitle"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <form action="{{ route('member.store') }}" method="POST">
                     @csrf
@@ -404,38 +438,40 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="create-member-code" class="form-label">Kode Member</label>
-                            <input type="text" name="member_code" id="create-member-code" class="form-control"
-                                value="{{ old('member_code') }}" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="create-member-name" class="form-label">Nama</label>
-                            <input type="text" name="name" id="create-member-name" class="form-control"
-                                value="{{ old('name') }}" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="create-member-email" class="form-label">Email</label>
-                            <input type="email" name="email" id="create-member-email" class="form-control"
-                                value="{{ old('email') }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="create-member-phone" class="form-label">Telepon</label>
-                            <input type="text" name="phone" id="create-member-phone" class="form-control"
-                                value="{{ old('phone') }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="create-member-address" class="form-label">Alamat</label>
-                            <textarea name="address" id="create-member-address" class="form-control" rows="3">{{ old('address') }}</textarea>
-                        </div>
-                        <div>
-                            <label for="create-member-status" class="form-label">Status</label>
-                            <select name="status" id="create-member-status" class="form-select" required>
-                                <option value="active" {{ old('status', 'active') === 'active' ? 'selected' : '' }}>Aktif
-                                </option>
-                                <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Tidak aktif
-                                </option>
-                            </select>
+                        <div class="member-form-grid">
+                            <div class="member-form-field">
+                                <label for="create-member-code" class="form-label">Kode Member</label>
+                                <input type="text" name="member_code" id="create-member-code" class="form-control"
+                                    value="{{ old('member_code') }}" required>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="create-member-name" class="form-label">Nama</label>
+                                <input type="text" name="name" id="create-member-name" class="form-control"
+                                    value="{{ old('name') }}" required>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="create-member-email" class="form-label">Email</label>
+                                <input type="email" name="email" id="create-member-email" class="form-control"
+                                    value="{{ old('email') }}">
+                            </div>
+                            <div class="member-form-field">
+                                <label for="create-member-phone" class="form-label">Telepon</label>
+                                <input type="text" name="phone" id="create-member-phone" class="form-control"
+                                    value="{{ old('phone') }}">
+                            </div>
+                            <div class="member-form-field full">
+                                <label for="create-member-address" class="form-label">Alamat</label>
+                                <textarea name="address" id="create-member-address" class="form-control" rows="3">{{ old('address') }}</textarea>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="create-member-status" class="form-label">Status</label>
+                                <select name="status" id="create-member-status" class="form-select" required>
+                                    <option value="active" {{ old('status', 'active') === 'active' ? 'selected' : '' }}>Aktif
+                                    </option>
+                                    <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Tidak aktif
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -450,8 +486,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="editMemberModal" tabindex="-1" aria-labelledby="editMemberTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade member-modal" id="editMemberModal" tabindex="-1" aria-labelledby="editMemberTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <form id="editMemberForm" method="POST">
                     @csrf
@@ -461,33 +497,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="edit-member-code" class="form-label">Kode Member</label>
-                            <input type="text" name="member_code" id="edit-member-code" class="form-control"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-member-name" class="form-label">Nama</label>
-                            <input type="text" name="name" id="edit-member-name" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-member-email" class="form-label">Email</label>
-                            <input type="email" name="email" id="edit-member-email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-member-phone" class="form-label">Telepon</label>
-                            <input type="text" name="phone" id="edit-member-phone" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-member-address" class="form-label">Alamat</label>
-                            <textarea name="address" id="edit-member-address" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div>
-                            <label for="edit-member-status" class="form-label">Status</label>
-                            <select name="status" id="edit-member-status" class="form-select" required>
-                                <option value="active">Aktif</option>
-                                <option value="inactive">Tidak aktif</option>
-                            </select>
+                        <div class="member-form-grid">
+                            <div class="member-form-field">
+                                <label for="edit-member-code" class="form-label">Kode Member</label>
+                                <input type="text" name="member_code" id="edit-member-code" class="form-control"
+                                    required>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="edit-member-name" class="form-label">Nama</label>
+                                <input type="text" name="name" id="edit-member-name" class="form-control" required>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="edit-member-email" class="form-label">Email</label>
+                                <input type="email" name="email" id="edit-member-email" class="form-control">
+                            </div>
+                            <div class="member-form-field">
+                                <label for="edit-member-phone" class="form-label">Telepon</label>
+                                <input type="text" name="phone" id="edit-member-phone" class="form-control">
+                            </div>
+                            <div class="member-form-field full">
+                                <label for="edit-member-address" class="form-label">Alamat</label>
+                                <textarea name="address" id="edit-member-address" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="member-form-field">
+                                <label for="edit-member-status" class="form-label">Status</label>
+                                <select name="status" id="edit-member-status" class="form-select" required>
+                                    <option value="active">Aktif</option>
+                                    <option value="inactive">Tidak aktif</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

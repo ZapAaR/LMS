@@ -158,5 +158,8 @@
             Cetak / Simpan sebagai PDF
         </button>
     </main>
+    <script>
+        window.addEventListener('load', () => window.print());
+    </script>
 </body>
 </html>
