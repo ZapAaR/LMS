@@ -8,7 +8,7 @@
     $initial = strtoupper(mb_substr($name, 0, 1));
 
     $dataOpen      = request()->is('kategori*', 'category*', 'book*', 'member*');
-    $transaksiOpen = request()->is('peminjaman*', 'pengembalian*');
+    $transaksiOpen = request()->is('borrowing*', 'pengembalian*');
 @endphp
 
 {{-- ================= SIDEBAR ================= --}}
@@ -51,7 +51,7 @@
                 <i class="bi bi-arrow-left-right"></i><span>Transaksi</span><i class="bi bi-chevron-down caret"></i>
             </a>
             <ul id="menu-transaksi" class="collapse submenu list-unstyled {{ $transaksiOpen ? 'show' : '' }}">
-                <li><a href="{{ url('/peminjaman') }}" class="sub-link {{ request()->is('peminjaman*') ? 'active' : '' }}">Peminjaman</a></li>
+                <li><a href="{{ route('borrowing.index') }}" class="sub-link {{ request()->is('borrowing*') ? 'active' : '' }}">Peminjaman</a></li>
                 <li><a href="{{ url('/pengembalian') }}" class="sub-link {{ request()->is('pengembalian*') ? 'active' : '' }}">Pengembalian</a></li>
             </ul>
         </li>

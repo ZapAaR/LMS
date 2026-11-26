@@ -93,51 +93,51 @@ Checkpoint:
 
 - [x] Membuat migration members.
 - [x] Membuat model Member.
-- [ ] Membuat MemberController.
-- [ ] Membuat MemberService.
-- [ ] Membuat validasi anggota.
-- [ ] Membuat halaman daftar anggota.
-- [ ] Membuat halaman tambah anggota.
-- [ ] Membuat proses simpan anggota.
-- [ ] Membuat halaman edit anggota.
-- [ ] Membuat proses update anggota.
-- [ ] Membuat proses hapus anggota.
-- [ ] Membuat pencarian anggota.
-- [ ] Menguji CRUD anggota.
+- [x] Membuat MemberController.
+- [x] Membuat MemberService.
+- [x] Membuat validasi anggota.
+- [x] Membuat halaman daftar anggota.
+- [x] Membuat halaman tambah anggota.
+- [x] Membuat proses simpan anggota.
+- [x] Membuat halaman edit anggota.
+- [x] Membuat proses update anggota.
+- [x] Membuat proses hapus anggota.
+- [x] Membuat pencarian anggota.
+- [x] Menguji CRUD anggota.
 
 Checkpoint:
-- [ ] CRUD anggota berjalan.
-- [ ] Validasi anggota berjalan.
+- [x] CRUD anggota berjalan.
+- [x] Validasi anggota berjalan.
 
 ---
 
 ## PHASE 6 - Borrowing Management
 
-- [ ] Membuat migration borrowings.
-- [ ] Membuat migration borrowing_details.
-- [ ] Membuat model Borrowing.
-- [ ] Membuat model BorrowingDetail.
-- [ ] Membuat relasi peminjaman dan anggota.
-- [ ] Membuat relasi peminjaman dan buku.
-- [ ] Membuat BorrowingController.
-- [ ] Membuat BorrowingService.
-- [ ] Membuat validasi peminjaman.
-- [ ] Memeriksa status anggota.
-- [ ] Memeriksa ketersediaan stok.
-- [ ] Memeriksa batas maksimal peminjaman.
-- [ ] Menentukan tanggal jatuh tempo.
-- [ ] Menyimpan transaksi peminjaman.
-- [ ] Mengurangi stok buku.
-- [ ] Menggunakan database transaction.
-- [ ] Menguji proses peminjaman.
+- [x] Membuat migration borrowings.
+- [x] Membuat migration borrowing_details.
+- [x] Membuat model Borrowing.
+- [x] Membuat model BorrowingDetail.
+- [x] Membuat relasi peminjaman dan anggota.
+- [x] Membuat relasi peminjaman dan buku.
+- [x] Membuat BorrowingController.
+- [x] Membuat BorrowingService.
+- [x] Membuat validasi peminjaman.
+- [x] Memeriksa status anggota.
+- [x] Memeriksa ketersediaan stok.
+- [x] Memeriksa batas maksimal peminjaman.
+- [x] Menentukan tanggal jatuh tempo.
+- [x] Menyimpan transaksi peminjaman.
+- [x] Mengurangi stok buku.
+- [x] Menggunakan database transaction.
+- [x] Menguji proses peminjaman.
 
 Checkpoint:
-- [ ] Peminjaman berhasil.
-- [ ] Stok berkurang secara otomatis.
-- [ ] Anggota tidak aktif tidak dapat meminjam.
-- [ ] Buku tanpa stok tidak dapat dipinjam.
-- [ ] Batas maksimal peminjaman berjalan.
-- [ ] Transaksi aman dari perubahan parsial.
+- [x] Peminjaman berhasil.
+- [x] Stok berkurang secara otomatis.
+- [x] Anggota tidak aktif tidak dapat meminjam.
+- [x] Buku tanpa stok tidak dapat dipinjam.
+- [x] Batas maksimal peminjaman berjalan.
+- [x] Transaksi aman dari perubahan parsial.
 
 ---
 

@@ -77,7 +77,7 @@ class MemberService
     // Menghapus satu anggota
     public function delete(Member $member)
     {
-        if ($member->borrowings()->exists()) {
+        if ($member->borrowings()->withTrashed()->exists()) {
             return false;
         }
 
@@ -107,7 +107,9 @@ class MemberService
             // Periksa apakah ada anggota yang memiliki riwayat peminjaman
             $hasBorrowingHistory = $this->member
                 ->whereIn('id', $ids)
-                ->whereHas('borrowings')
+                ->whereHas('borrowings', function ($query) {
+                    $query->withTrashed();
+                })
                 ->exists();
 
             if ($hasBorrowingHistory) {
