@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReturnController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,5 +45,7 @@ Route::middleware('auth', 'role:admin,petugas')->group(function () {
     Route::patch('borrowing/{borrowing}/status', [BorrowingController::class, 'updateStatus'])
         ->name('borrowing.updateStatus');
     Route::resource('borrowing', BorrowingController::class)->only('index', 'store', 'show', 'destroy');
+
+    Route::resource('return', ReturnController::class)->only('index', 'show', 'store');
 });
 require __DIR__.'/auth.php';

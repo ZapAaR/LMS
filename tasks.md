@@ -143,26 +143,26 @@ Checkpoint:
 
 ## PHASE 7 - Return Management
 
-- [ ] Membuat migration returns.
-- [ ] Membuat model Return.
-- [ ] Membuat ReturnController.
-- [ ] Membuat ReturnService.
-- [ ] Membuat validasi pengembalian.
-- [ ] Mencari transaksi peminjaman.
-- [ ] Memeriksa status peminjaman.
-- [ ] Mencatat tanggal pengembalian.
-- [ ] Menghitung keterlambatan.
-- [ ] Menghitung denda.
-- [ ] Mengembalikan stok buku.
-- [ ] Memperbarui status transaksi.
-- [ ] Menggunakan database transaction.
-- [ ] Menguji proses pengembalian.
+- [x] Membuat migration returns.
+- [x] Membuat model Return.
+- [x] Membuat ReturnController.
+- [x] Membuat ReturnService.
+- [x] Membuat validasi pengembalian.
+- [x] Mencari transaksi peminjaman.
+- [x] Memeriksa status peminjaman.
+- [x] Mencatat tanggal pengembalian.
+- [x] Menghitung keterlambatan.
+- [x] Menghitung denda.
+- [x] Mengembalikan stok buku.
+- [x] Memperbarui status transaksi.
+- [x] Menggunakan database transaction.
+- [x] Menguji proses pengembalian.
 
 Checkpoint:
-- [ ] Pengembalian berhasil.
-- [ ] Stok bertambah secara otomatis.
-- [ ] Denda dihitung dengan benar.
-- [ ] Pengembalian tidak dapat diproses dua kali.
+- [x] Pengembalian berhasil.
+- [x] Stok bertambah secara otomatis.
+- [x] Denda dihitung dengan benar.
+- [x] Pengembalian tidak dapat diproses dua kali.
 
 ---
 
