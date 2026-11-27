@@ -190,35 +190,35 @@ Checkpoint:
 - [x] Menampilkan peminjaman aktif.
 - [x] Menampilkan jumlah pengembalian.
 - [x] Menampilkan transaksi terbaru.
-- [ ] Membuat laporan peminjaman.
-- [ ] Membuat laporan pengembalian.
-- [ ] Membuat laporan keterlambatan.
+- [x] Membuat laporan peminjaman.
+- [x] Membuat laporan pengembalian.
+- [x] Membuat laporan keterlambatan.
 
 Checkpoint:
-- [ ] Dashboard menampilkan data aktual.
-- [ ] Laporan dapat ditampilkan.
+- [x] Dashboard menampilkan data aktual.
+- [x] Laporan dapat ditampilkan.
 
 ---
 
 ## PHASE 10 - Testing & Quality
 
-- [ ] Menguji authentication.
-- [ ] Menguji authorization.
-- [ ] Menguji CRUD kategori.
-- [ ] Menguji CRUD buku.
-- [ ] Menguji CRUD anggota.
-- [ ] Menguji peminjaman.
-- [ ] Menguji pengembalian.
-- [ ] Menguji validasi input.
-- [ ] Menguji business rules.
-- [ ] Menguji database transaction.
-- [ ] Memeriksa error handling.
-- [ ] Memeriksa keamanan aplikasi.
+- [x] Menguji authentication.
+- [x] Menguji authorization.
+- [x] Menguji CRUD kategori.
+- [x] Menguji CRUD buku.
+- [x] Menguji CRUD anggota.
+- [x] Menguji peminjaman.
+- [x] Menguji pengembalian.
+- [x] Menguji validasi input.
+- [x] Menguji business rules.
+- [x] Menguji database transaction.
+- [x] Memeriksa error handling.
+- [x] Memeriksa keamanan aplikasi.
 
 Checkpoint:
-- [ ] Seluruh fitur utama berjalan.
-- [ ] Tidak ada bug kritis.
-- [ ] Business rules berjalan sesuai PRD.
+- [x] Seluruh fitur utama berjalan.
+- [x] Tidak ada bug kritis.
+- [x] Business rules berjalan sesuai PRD.
 
 ---
 

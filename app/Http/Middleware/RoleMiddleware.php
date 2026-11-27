@@ -15,13 +15,16 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if (!$request->user()) {
+        $user = $request->user();
+
+        if (! $user) {
             return redirect()->route('login');
         }
 
-        if (!in_array($request->user()->role->slug, $roles)) {
+        if (! $user->role || ! in_array($user->role->slug, $roles, true)) {
             abort(403, 'Kamu tidak memiliki akses.');
         }
+
         return $next($request);
     }
 }

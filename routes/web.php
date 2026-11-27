@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MemberController;
 use App\Http\Controllers\BorrowingController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ReturnController;
-use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReturnController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,8 +32,6 @@ Route::middleware('auth', 'role:admin,petugas')->group(function () {
     Route::delete('member/bulk-delete', [MemberController::class, 'bulkDelete'])
         ->name('member.bulkDelete');
     Route::patch('member/{member}/status', [MemberController::class, 'updateStatus'])
-        ->whereNumber('member');
-    Route::patch('member/{member}/status', [MemberController::class, 'updateStatus'])
         ->name('member.updateStatus');
     Route::get('member/{member}/pdf', [MemberController::class, 'printProfile'])
         ->name('member.pdf');
@@ -51,6 +49,9 @@ Route::middleware('auth', 'role:admin,petugas')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 });
 require __DIR__.'/auth.php';

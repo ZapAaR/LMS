@@ -56,19 +56,16 @@
             </ul>
         </li>
 
-        <li>
-            <a href="{{ route('reports.index') }}" class="menu-link {{ request()->is('reports*') ? 'active' : '' }}" title="Laporan">
-                <i class="bi bi-file-earmark-bar-graph"></i><span>Laporan</span>
-            </a>
-        </li>
+        @if ($user?->role?->slug === 'admin')
+            <li>
+                <a href="{{ route('reports.index') }}" class="menu-link {{ request()->is('reports*') ? 'active' : '' }}" title="Laporan">
+                    <i class="bi bi-file-earmark-bar-graph"></i><span>Laporan</span>
+                </a>
+            </li>
+        @endif
         <li>
             <a href="{{ route('history.index') }}" class="menu-link {{ request()->is('history*') ? 'active' : '' }}" title="Riwayat">
                 <i class="bi bi-clock-history"></i><span>Riwayat</span>
-            </a>
-        </li>
-        <li>
-            <a href="{{ url('/pengguna') }}" class="menu-link {{ request()->is('pengguna*') ? 'active' : '' }}" title="Kelola akun pengguna">
-                <i class="bi bi-person-gear"></i><span>Kelola akun pengguna</span>
             </a>
         </li>
     </ul>
@@ -106,7 +103,7 @@
 
         <ul class="dropdown-menu dropdown-menu-end profile-menu">
             <li>
-                <a class="dropdown-item" href="{{ url('/profile') }}"><i class="bi bi-person me-2"></i>Profile</a>
+                <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="bi bi-person me-2"></i>Profile</a>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>

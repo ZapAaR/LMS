@@ -1,29 +1,29 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+@section('title', 'Profil')
+@section('page-title', 'Profil')
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
+@section('content')
+    <div class="page-head mb-3">
+        <h2>Pengaturan Profil</h2>
+        <p>Perbarui informasi akun, kata sandi, atau hapus akun Anda.</p>
     </div>
-</x-app-layout>
+
+    @if (session('status') === 'profile-updated')
+        <div class="alert alert-success" role="status">Informasi profil berhasil diperbarui.</div>
+    @elseif (session('status') === 'password-updated')
+        <div class="alert alert-success" role="status">Kata sandi berhasil diperbarui.</div>
+    @endif
+
+    <div class="surface mb-4">
+        @include('profile.partials.update-profile-information-form')
+    </div>
+
+    <div class="surface mb-4">
+        @include('profile.partials.update-password-form')
+    </div>
+
+    <div class="surface">
+        @include('profile.partials.delete-user-form')
+    </div>
+@endsection
