@@ -184,12 +184,12 @@ Checkpoint:
 
 ## PHASE 9 - Dashboard & Reports
 
-- [ ] Membuat tampilan dashboard.
-- [ ] Menampilkan total buku.
-- [ ] Menampilkan total anggota.
-- [ ] Menampilkan peminjaman aktif.
-- [ ] Menampilkan jumlah pengembalian.
-- [ ] Menampilkan transaksi terbaru.
+- [x] Membuat tampilan dashboard.
+- [x] Menampilkan total buku.
+- [x] Menampilkan total anggota.
+- [x] Menampilkan peminjaman aktif.
+- [x] Menampilkan jumlah pengembalian.
+- [x] Menampilkan transaksi terbaru.
 - [ ] Membuat laporan peminjaman.
 - [ ] Membuat laporan pengembalian.
 - [ ] Membuat laporan keterlambatan.

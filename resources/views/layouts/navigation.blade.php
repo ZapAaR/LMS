@@ -57,7 +57,7 @@
         </li>
 
         <li>
-            <a href="{{ url('/laporan') }}" class="menu-link {{ request()->is('laporan*') ? 'active' : '' }}" title="Laporan">
+            <a href="{{ route('reports.index') }}" class="menu-link {{ request()->is('reports*') ? 'active' : '' }}" title="Laporan">
                 <i class="bi bi-file-earmark-bar-graph"></i><span>Laporan</span>
             </a>
         </li>

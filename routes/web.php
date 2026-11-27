@@ -7,15 +7,13 @@ use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -50,5 +48,9 @@ Route::middleware('auth', 'role:admin,petugas')->group(function () {
     Route::resource('return', ReturnController::class)->only('index', 'show', 'store');
 
     Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 });
 require __DIR__.'/auth.php';
