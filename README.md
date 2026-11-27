@@ -1,59 +1,364 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Library Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi manajemen perpustakaan berbasis web yang dibangun menggunakan Laravel 12 dan MySQL. Aplikasi ini membantu petugas perpustakaan mengelola data buku, kategori, anggota, peminjaman, pengembalian, serta laporan transaksi.
 
-## About Laravel
+## Fitur Aplikasi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. Dashboard
+- Menampilkan ringkasan data perpustakaan.
+- Menampilkan total buku dan anggota.
+- Menampilkan jumlah peminjaman aktif dan pengembalian.
+- Menampilkan transaksi terbaru.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 2. Manajemen Kategori
+- Menambahkan kategori buku.
+- Mengubah data kategori.
+- Menghapus kategori.
+- Menampilkan daftar kategori.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 3. Manajemen Buku
+- Menambahkan data buku.
+- Mengubah data buku.
+- Menghapus data buku.
+- Pencarian buku.
+- Filter berdasarkan kategori.
+- Sorting berdasarkan judul.
+- Filter berdasarkan ketersediaan stok.
+- Pagination.
+- Bulk delete.
+- Melihat detail buku.
 
-## Learning Laravel
+### 4. Manajemen Anggota
+- Menambahkan data anggota.
+- Mengubah data anggota.
+- Menghapus data anggota.
+- Pencarian anggota.
+- Sorting dan pagination.
+- Mengubah status anggota menjadi aktif atau nonaktif.
+- Bulk update status.
+- Melihat detail anggota.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 5. Manajemen Peminjaman
+- Mencatat transaksi peminjaman buku.
+- Memeriksa status keaktifan anggota.
+- Memeriksa ketersediaan stok buku.
+- Membatasi jumlah peminjaman maksimal 3 buku per transaksi.
+- Menentukan tanggal jatuh tempo secara otomatis.
+- Mengurangi stok tersedia setelah peminjaman berhasil.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 6. Manajemen Pengembalian
+- Mencatat pengembalian buku.
+- Menghitung keterlambatan pengembalian.
+- Menghitung denda berdasarkan aturan yang diterapkan.
+- Mengembalikan stok buku secara otomatis.
+- Mencegah transaksi pengembalian diproses lebih dari satu kali.
 
-## Laravel Sponsors
+### 7. Riwayat Transaksi
+- Melihat riwayat peminjaman.
+- Melihat riwayat pengembalian.
+- Pencarian transaksi.
+- Filter berdasarkan tanggal.
+- Filter berdasarkan status.
+- Sorting dan pagination.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 8. Laporan
+- Laporan peminjaman.
+- Laporan pengembalian.
+- Laporan keterlambatan.
+- Pencarian dan filter berdasarkan rentang tanggal.
+- Sorting dan pagination.
 
-### Premium Partners
+### 9. Manajemen Pengguna
+- Pengelolaan akun pengguna aplikasi.
+- Pembagian hak akses berdasarkan role.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Teknologi yang Digunakan
 
-## Contributing
+| Teknologi | Keterangan |
+|---|---|
+| PHP | Bahasa pemrograman backend |
+| Laravel 12 | Backend framework |
+| MySQL | Database |
+| Bootstrap | CSS framework |
+| Blade | Template engine |
+| JavaScript | Interaksi frontend |
+| Composer | Dependency manager PHP |
+| NPM | Dependency manager frontend |
+| Git | Version control |
+| GitHub | Repository project |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Persyaratan Sistem
 
-## Code of Conduct
+Pastikan perangkat sudah memiliki:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- PHP 8.2 atau lebih baru.
+- Composer.
+- MySQL atau MariaDB.
+- Node.js dan NPM.
+- Git.
+- Web browser.
 
-## Security Vulnerabilities
+XAMPP dapat digunakan untuk menjalankan Apache dan MySQL secara lokal.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Instalasi
 
-## License
+### 1. Clone Repository
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/USERNAME/REPOSITORY.git
+```
+
+Masuk ke folder project:
+
+```bash
+cd REPOSITORY
+```
+
+Ganti `USERNAME` dan `REPOSITORY` sesuai alamat repository GitHub.
+
+### 2. Install Dependency
+
+Install dependency Laravel:
+
+```bash
+composer install
+```
+
+Install dependency frontend:
+
+```bash
+npm install
+```
+
+### 3. Konfigurasi Environment
+
+Salin file `.env.example` menjadi `.env`.
+
+Windows CMD:
+
+```cmd
+copy .env.example .env
+```
+
+Linux/macOS:
+
+```bash
+cp .env.example .env
+```
+
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+
+Buat database baru melalui phpMyAdmin atau MySQL.
+
+Contoh nama database:
+
+```text
+library_management
+```
+
+Sesuaikan konfigurasi database pada file `.env`:
+
+```env
+APP_NAME="Library Management System"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=library_management
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Sesuaikan `DB_PORT`, username, dan password dengan konfigurasi MySQL di perangkat masing-masing.
+
+### 5. Migrasi Database
+
+Jalankan migrasi:
+
+```bash
+php artisan migrate
+```
+
+Jika project sudah menyediakan seeder dan kamu ingin mengisi data awal:
+
+```bash
+php artisan migrate --seed
+```
+
+### 6. Build Frontend
+
+```bash
+npm run build
+```
+
+## Menjalankan Aplikasi
+
+Jalankan server Laravel:
+
+```bash
+php artisan serve
+```
+
+Buka aplikasi melalui browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+Untuk pengembangan frontend menggunakan Vite, jalankan:
+
+```bash
+npm run dev
+```
+
+## Struktur Database
+
+Aplikasi menggunakan beberapa tabel utama:
+
+| Tabel | Fungsi |
+|---|---|
+| users | Menyimpan akun pengguna aplikasi |
+| roles | Menyimpan role pengguna |
+| categories | Menyimpan kategori buku |
+| books | Menyimpan data buku dan stok |
+| members | Menyimpan data anggota perpustakaan |
+| borrowings | Menyimpan transaksi peminjaman |
+| borrowing_details | Menyimpan detail buku dalam transaksi peminjaman |
+| returns | Menyimpan transaksi pengembalian |
+
+### Relasi Database
+
+- `categories` memiliki banyak `books`.
+- `members` memiliki banyak `borrowings`.
+- `users` dapat memproses banyak transaksi peminjaman.
+- `borrowings` memiliki banyak `borrowing_details`.
+- `books` dapat muncul dalam banyak `borrowing_details`.
+- `borrowings` memiliki satu transaksi `returns`.
+- `users` dapat memproses banyak transaksi pengembalian.
+
+## Aturan Bisnis
+
+Aturan utama dalam aplikasi:
+
+1. Maksimal 3 buku dalam satu transaksi peminjaman.
+2. Durasi peminjaman adalah 7 hari.
+3. Anggota harus berstatus aktif untuk melakukan peminjaman.
+4. Buku harus memiliki stok tersedia.
+5. Stok buku tidak boleh menjadi negatif.
+6. Tanggal jatuh tempo dihitung otomatis berdasarkan tanggal peminjaman.
+7. Pengembalian diproses secara penuh.
+8. Satu transaksi peminjaman hanya dapat memiliki satu transaksi pengembalian.
+9. Stok tersedia bertambah setelah pengembalian berhasil.
+
+## Role dan Hak Akses
+
+Aplikasi memiliki dua role pengguna:
+
+| Role | Keterangan |
+|---|---|
+| Admin | Mengelola aplikasi sesuai hak akses administrator |
+| Petugas | Mengelola operasional perpustakaan sesuai hak akses petugas |
+
+Akses setiap fitur dibatasi menggunakan middleware dan pemeriksaan role.
+
+## Struktur Folder
+
+Beberapa direktori penting dalam project Laravel:
+
+```text
+app/
+├── Http/
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Requests/
+├── Models/
+└── Services/
+
+database/
+├── migrations/
+└── seeders/
+
+resources/
+└── views/
+
+routes/
+└── web.php
+
+public/
+```
+
+Keterangan:
+
+- `Controllers`: Mengelola request dan response.
+- `Middleware`: Memeriksa autentikasi dan hak akses.
+- `Requests`: Mengelola validasi input.
+- `Models`: Mengelola representasi tabel database.
+- `Services`: Menangani business logic aplikasi.
+- `migrations`: Mengelola struktur database.
+- `seeders`: Menyediakan data awal.
+- `views`: Menyimpan tampilan Blade.
+- `routes`: Mendefinisikan endpoint aplikasi.
+
+## Screenshot Aplikasi
+
+Screenshot aplikasi akan ditambahkan setelah tampilan dan seluruh fitur utama selesai diuji.
+
+Contoh struktur penyimpanan screenshot:
+
+```text
+docs/
+└── screenshots/
+    ├── dashboard.png
+    ├── categories.png
+    ├── books.png
+    ├── members.png
+    ├── borrowing.png
+    ├── returns.png
+    ├── transaction-history.png
+    └── reports.png
+```
+
+Contoh menampilkan screenshot di README:
+
+```markdown
+![Dashboard](docs/screenshots/dashboard.png)
+```
+
+## Pengembangan
+
+Project ini dikembangkan sebagai project pembelajaran untuk menerapkan konsep pengembangan aplikasi web menggunakan Laravel, termasuk:
+
+- CRUD (Create, Read, Update, Delete).
+- MVC Architecture.
+- Service Layer.
+- Form Request Validation.
+- Eloquent ORM dan relasi database.
+- Database Transaction.
+- Role-Based Access Control.
+- Search, Filter, Sorting, dan Pagination.
+- Pengelolaan stok dan transaksi.
+
+## Status Project
+
+**Status:** Dalam pengembangan.
+
+Hosting dan deployment belum dilakukan.
+
+## Repository
+
+GitHub: https://github.com/ZapAaR/LMS.git
+
+## Author
+
+Nama: ZapAaR
+
+GitHub: https://github.com/ZapAaR

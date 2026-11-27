@@ -224,17 +224,17 @@ Checkpoint:
 
 ## PHASE 11 - Documentation & Deployment
 
-- [ ] Membuat README.md.
-- [ ] Menjelaskan kebutuhan instalasi.
-- [ ] Menjelaskan cara menjalankan aplikasi.
-- [ ] Mendokumentasikan fitur.
-- [ ] Mendokumentasikan struktur database.
+- [x] Membuat README.md.
+- [x] Menjelaskan kebutuhan instalasi.
+- [x] Menjelaskan cara menjalankan aplikasi.
+- [x] Mendokumentasikan fitur.
+- [x] Mendokumentasikan struktur database.
 - [ ] Menambahkan screenshot aplikasi.
 - [ ] Menyiapkan demo proyek.
 - [ ] Menyiapkan deployment.
 
 Checkpoint:
-- [ ] Dokumentasi selesai.
+- [x] Dokumentasi selesai.
 - [ ] Proyek siap dipresentasikan.
 
 ---
