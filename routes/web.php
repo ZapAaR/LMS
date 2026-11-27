@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -47,5 +48,7 @@ Route::middleware('auth', 'role:admin,petugas')->group(function () {
     Route::resource('borrowing', BorrowingController::class)->only('index', 'store', 'show', 'destroy');
 
     Route::resource('return', ReturnController::class)->only('index', 'show', 'store');
+
+    Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
 });
 require __DIR__.'/auth.php';

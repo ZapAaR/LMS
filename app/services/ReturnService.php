@@ -209,4 +209,59 @@ class ReturnService
     {
         return $lateDays * $totalQuantity * $this->finePerBook;
     }
+
+
+    public function getReturnHistory(
+        string $search = '',
+        string $status = '',
+        string $startDate = '',
+        string $endDate = '',
+        string $sort = 'desc',
+        int $perPage = 10
+    ) {
+        $query = $this->return->with([
+            'borrowing.member',
+            'borrowing.processedBy',
+            'borrowing.details.book',
+            'processedBy',
+        ]);
+
+        // SEARCH
+        $query->when($search, function ($query) use ($search) {
+            $query->whereHas('borrowing', function ($query) use ($search) {
+                $query->where('borrowing_code', 'like', "%{$search}%")
+                    ->orWhereHas('member', function ($query) use ($search) {
+                        $query->where('name', 'like', "%{$search}%")
+                            ->orWhere('member_code', 'like', "%{$search}%");
+                    });
+            });
+        });
+
+        // FILTER STATUS
+        $query->when($status === 'late', function ($query) {
+            $query->where('late_days', '>', 0);
+        });
+
+        $query->when($status === 'on_time', function ($query) {
+            $query->where('late_days', 0);
+        });
+
+        // FILTER TANGGAL
+        $query->when($startDate, function ($query) use ($startDate) {
+            $query->whereDate('return_date', '>=', $startDate);
+        });
+
+        $query->when($endDate, function ($query) use ($endDate) {
+            $query->whereDate('return_date', '<=', $endDate);
+        });
+
+        // SORTING
+        $sort = $sort === 'asc' ? 'asc' : 'desc';
+
+        return $query
+            ->orderBy('return_date', $sort)
+            ->orderBy('id', $sort)
+            ->paginate($perPage)
+            ->withQueryString();
+    }
 }

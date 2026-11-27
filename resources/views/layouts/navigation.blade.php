@@ -62,7 +62,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ url('/riwayat') }}" class="menu-link {{ request()->is('riwayat*') ? 'active' : '' }}" title="Riwayat">
+            <a href="{{ route('history.index') }}" class="menu-link {{ request()->is('history*') ? 'active' : '' }}" title="Riwayat">
                 <i class="bi bi-clock-history"></i><span>Riwayat</span>
             </a>
         </li>

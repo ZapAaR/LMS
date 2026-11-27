@@ -302,4 +302,54 @@ class BorrowingService
 
         return $code;
     }
+
+
+    public function getBorrowingHistory(
+        string $search = '',
+        string $status = '',
+        string $startDate = '',
+        string $endDate = '',
+        string $sort = 'desc',
+        int $perPage = 10
+    ) {
+        $query = $this->borrowing->with([
+            'member',
+            'processedBy',
+            'details.book',
+        ]);
+
+        // SEARCH
+        $query->when($search, function ($query) use ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where('borrowing_code', 'like', "%{$search}%")
+                    ->orWhereHas('member', function ($query) use ($search) {
+                        $query->where('name', 'like', "%{$search}%")
+                            ->orWhere('member_code', 'like', "%{$search}%");
+                    });
+            });
+        });
+
+        // FILTER STATUS
+        $query->when($status, function ($query) use ($status) {
+            $query->where('status', $status);
+        });
+
+        // FILTER TANGGAL
+        $query->when($startDate, function ($query) use ($startDate) {
+            $query->whereDate('borrow_date', '>=', $startDate);
+        });
+
+        $query->when($endDate, function ($query) use ($endDate) {
+            $query->whereDate('borrow_date', '<=', $endDate);
+        });
+
+        // SORTING
+        $sort = $sort === 'asc' ? 'asc' : 'desc';
+
+        return $query
+            ->orderBy('borrow_date', $sort)
+            ->orderBy('id', $sort)
+            ->paginate($perPage)
+            ->withQueryString();
+    }
 }

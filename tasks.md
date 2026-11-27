@@ -168,17 +168,17 @@ Checkpoint:
 
 ## PHASE 8 - Transaction History
 
-- [ ] Membuat halaman riwayat peminjaman.
-- [ ] Membuat halaman riwayat pengembalian.
-- [ ] Menampilkan status transaksi.
-- [ ] Membuat pencarian transaksi.
-- [ ] Membuat filter berdasarkan tanggal.
-- [ ] Membuat pagination.
-- [ ] Menguji riwayat transaksi.
+- [x] Membuat halaman riwayat peminjaman.
+- [x] Membuat halaman riwayat pengembalian.
+- [x] Menampilkan status transaksi.
+- [x] Membuat pencarian transaksi.
+- [x] Membuat filter berdasarkan tanggal.
+- [x] Membuat pagination.
+- [x] Menguji riwayat transaksi.
 
 Checkpoint:
-- [ ] Riwayat transaksi dapat ditampilkan.
-- [ ] Filter dan pencarian berjalan.
+- [x] Riwayat transaksi dapat ditampilkan.
+- [x] Filter dan pencarian berjalan.
 
 ---
 
